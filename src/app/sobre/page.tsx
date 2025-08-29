@@ -66,34 +66,35 @@ export default function SobrePage() {
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             <div className="text-center p-6 bg-white rounded-xl border border-blue-200 shadow-md hover:shadow-lg transition-all duration-300">
-              <div className="w-12 h-12 bg-gradient-to-r from-[#1E90FF] to-blue-600 rounded-full flex items-center justify-center text-xl mb-4 mx-auto shadow-md">
-                🎓
+              <div className="w-12 h-12 bg-gradient-to-r from-[#1E90FF] to-blue-600 rounded-full flex items-center justify-center mb-4 mx-auto shadow-md">
+                <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 14l9-5-9-5-9 5 9 5z"/>
+                  <path d="M12 16l6-3.3v4.8c0 .4-.2.8-.6 1l-5.4 3c-.4.2-.8.2-1.2 0l-5.4-3c-.4-.2-.6-.6-.6-1v-4.8L12 16z"/>
+                  <path d="M12 18l6-3.3v4.8c0 .4-.2.8-.6 1l-5.4 3c-.4.2-.8.2-1.2 0l-5.4-3c-.4-.2-.6-.6-.6-1v-4.8L12 18z"/>
+                </svg>
               </div>
               <h3 className="text-lg font-bold text-gray-800 mb-2">Licenciado em Desporto e Atividade Física</h3>
             </div>
 
-            <div className="text-center p-6 bg-white rounded-xl border border-orange-200 shadow-md hover:shadow-lg transition-all duration-300">
-              <div className="w-12 h-12 bg-gradient-to-r from-[#FF6B35] to-orange-600 rounded-full flex items-center justify-center text-xl mb-4 mx-auto shadow-md">
-                🏊‍♂️
-              </div>
-              <h3 className="text-lg font-bold text-gray-800 mb-2">Professor de Natação</h3>
-            </div>
+                         <div className="text-center p-6 bg-white rounded-xl border border-orange-200 shadow-md hover:shadow-lg transition-all duration-300">
+               <div className="w-12 h-12 bg-gradient-to-r from-[#FF6B35] to-orange-600 rounded-full flex items-center justify-center mb-4 mx-auto shadow-md">
+                 <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                   <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                 </svg>
+               </div>
+               <h3 className="text-lg font-bold text-gray-800 mb-2">Professor de Natação & Instrutor de Pilates</h3>
+             </div>
 
-            <div className="text-center p-6 bg-white rounded-xl border border-green-200 shadow-md hover:shadow-lg transition-all duration-300">
-              <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-600 rounded-full flex items-center justify-center text-xl mb-4 mx-auto shadow-md">
-                🚒
-              </div>
-              <h3 className="text-lg font-bold text-gray-800 mb-2">Bombeiro Voluntário</h3>
-            </div>
-
-            <div className="text-center p-6 bg-white rounded-xl border border-purple-200 shadow-md hover:shadow-lg transition-all duration-300">
-              <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-600 rounded-full flex items-center justify-center text-xl mb-4 mx-auto shadow-md">
-                🧘‍♂️
-              </div>
-              <h3 className="text-lg font-bold text-gray-800 mb-2">Instrutor de Pilates</h3>
-            </div>
+             <div className="text-center p-6 bg-white rounded-xl border border-green-200 shadow-md hover:shadow-lg transition-all duration-300">
+               <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-600 rounded-full flex items-center justify-center mb-4 mx-auto shadow-md">
+                 <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                   <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                 </svg>
+               </div>
+               <h3 className="text-lg font-bold text-gray-800 mb-2">Bombeiro Voluntário</h3>
+             </div>
           </div>
         </div>
       </section>
@@ -109,8 +110,10 @@ export default function SobrePage() {
 
           <div className="grid md:grid-cols-3 gap-6">
             <div className="text-center p-6 bg-white rounded-xl border border-blue-200 shadow-md hover:shadow-lg transition-all duration-300">
-              <div className="w-12 h-12 bg-gradient-to-r from-[#1E90FF] to-blue-600 rounded-full flex items-center justify-center text-xl mb-4 mx-auto shadow-md">
-                🎯
+              <div className="w-12 h-12 bg-gradient-to-r from-[#1E90FF] to-blue-600 rounded-full flex items-center justify-center mb-4 mx-auto shadow-md">
+                <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
               </div>
               <h3 className="text-xl font-bold text-gray-800 mb-3">MISSÃO</h3>
               <p className="text-gray-600 text-sm">
@@ -119,8 +122,10 @@ export default function SobrePage() {
             </div>
 
             <div className="text-center p-6 bg-white rounded-xl border border-orange-200 shadow-md hover:shadow-lg transition-all duration-300">
-              <div className="w-12 h-12 bg-gradient-to-r from-[#FF6B35] to-orange-600 rounded-full flex items-center justify-center text-xl mb-4 mx-auto shadow-md">
-                👁️
+              <div className="w-12 h-12 bg-gradient-to-r from-[#FF6B35] to-orange-600 rounded-full flex items-center justify-center mb-4 mx-auto shadow-md">
+                <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
+                </svg>
               </div>
               <h3 className="text-xl font-bold text-gray-800 mb-3">VISÃO</h3>
               <p className="text-gray-600 text-sm">
@@ -129,8 +134,10 @@ export default function SobrePage() {
             </div>
 
             <div className="text-center p-6 bg-white rounded-xl border border-green-200 shadow-md hover:shadow-lg transition-all duration-300">
-              <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-600 rounded-full flex items-center justify-center text-xl mb-4 mx-auto shadow-md">
-                ⚡
+              <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-600 rounded-full flex items-center justify-center mb-4 mx-auto shadow-md">
+                <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M13 2.05v3.03c3.39.49 6 3.39 6 6.92 0 .9-.18 1.75-.5 2.54l2.6 1.53c.56-1.24.9-2.62.9-4.07 0-5.18-3.95-9.45-9-9.95zM12 19c-3.87 0-7-3.13-7-7 0-3.53 2.61-6.43 6-6.92V2.05c-5.06.5-9 4.76-9 9.95 0 5.52 4.47 10 9.99 10 3.31 0 6.24-1.61 8.06-4.09l-2.6-1.53C16.17 17.98 14.21 19 12 19z"/>
+                </svg>
               </div>
               <h3 className="text-xl font-bold text-gray-800 mb-3">VALORES</h3>
               <p className="text-gray-600 text-sm">
