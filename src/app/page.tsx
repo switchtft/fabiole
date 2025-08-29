@@ -141,7 +141,7 @@ export default function Home() {
                 Com anos de experiência, ajudo pessoas a alcançarem os seus objetivos 
                 através de treinos personalizados e acompanhamento dedicado.
               </p>
-              <div className="grid grid-cols-3 gap-6">
+              <div className="grid grid-cols-2 gap-6 mb-8">
                 <div className="text-center">
                   <div className="text-3xl font-bold text-[#1E90FF] mb-2">5+</div>
                   <div className="text-gray-600">Anos de Experiência</div>
@@ -150,10 +150,19 @@ export default function Home() {
                   <div className="text-3xl font-bold text-[#FF6B35] mb-2">100+</div>
                   <div className="text-gray-600">Clientes Satisfeitos</div>
                 </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-green-500 mb-2">24/7</div>
-                  <div className="text-gray-600">Suporte</div>
-                </div>
+              </div>
+              <div className="text-center mb-8">
+                <Link 
+                  href="/sobre" 
+                  className="inline-block bg-[#1E90FF] hover:bg-[#1E90FF]/90 text-white font-bold px-8 py-3 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
+                >
+                  Saber Mais
+                </Link>
+              </div>
+              <div className="mt-8 p-6 bg-gradient-to-r from-blue-50 to-orange-50 rounded-xl border-l-4 border-[#1E90FF]">
+                <p className="text-lg text-gray-700 italic text-center">
+                  &ldquo;Aquele que não tem tempo de cuidar da saúde, vai precisar de tempo para cuidar da doença&rdquo;
+                </p>
               </div>
             </motion.div>
             
@@ -164,12 +173,12 @@ export default function Home() {
               viewport={{ once: true }}
               className="relative"
             >
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl max-w-md mx-auto">
                 <Image
                   src="/images/fabio1.png"
                   alt="Fábio Lé Personal Trainer"
-                  width={500}
-                  height={600}
+                  width={400}
+                  height={500}
                   className="w-full h-auto"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-gray-400/20 to-transparent"></div>
@@ -221,7 +230,7 @@ export default function Home() {
                 className="bg-white rounded-2xl p-8 border border-blue-200 shadow-lg"
               >
                 <div className="text-yellow-400 text-2xl mb-4">★★★★★</div>
-                <p className="text-gray-600 mb-6 italic">"{testimonial.text}"</p>
+                <p className="text-gray-600 mb-6 italic">&ldquo;{testimonial.text}&rdquo;</p>
                 <div className="border-t border-blue-200 pt-4">
                   <div className="font-semibold text-gray-800">{testimonial.name}</div>
                   <div className="text-[#FF6B35] text-sm font-medium">{testimonial.result}</div>
