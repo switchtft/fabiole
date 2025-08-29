@@ -29,7 +29,7 @@ export default function SobrePage() {
                   height={800}
                   className="w-full h-auto"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#1E90FF]/20 to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-gray-400/20 to-transparent"></div>
               </div>
             </div>
 

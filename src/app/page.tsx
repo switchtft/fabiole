@@ -17,7 +17,7 @@ export default function Home() {
             className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-[#1E90FF]/40"></div>
+          <div className="absolute inset-0 bg-gray-400/30"></div>
         </div>
         
         {/* Hero Content */}
@@ -172,7 +172,7 @@ export default function Home() {
                   height={600}
                   className="w-full h-auto"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#1E90FF]/20 to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-gray-400/20 to-transparent"></div>
               </div>
             </motion.div>
           </div>
