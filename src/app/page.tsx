@@ -55,7 +55,7 @@ export default function Home() {
         <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {[1,2,3].map((i) => (
             <div key={i} className="rounded-xl border border-white/10 bg-card/40 p-6 text-white/80 text-sm">
-              "Excelente acompanhamento e resultados visíveis!" — Cliente {i}
+              &ldquo;Excelente acompanhamento e resultados visíveis!&rdquo; — Cliente {i}
             </div>
           ))}
         </div>
