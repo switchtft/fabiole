@@ -34,7 +34,7 @@ function ContactoPageInner() {
     }
 
     setStatus("idle");
-    fetch("/contacto", {
+  fetch("/contacto/api", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
