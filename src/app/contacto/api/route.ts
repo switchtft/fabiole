@@ -1,15 +1,25 @@
 import { NextResponse } from "next/server";
-import { Resend } from "resend";
-
-const resend = new Resend(process.env.RESEND_API_KEY);
+import nodemailer from "nodemailer";
 
 export async function POST(req: Request) {
   try {
     const { name, email, message, service, frequency, duration } = await req.json();
 
-    await resend.emails.send({
-      from: "onboarding@resend.dev", // must be verified in Resend dashboard
-      to: "andrebalao26@gmail.com", // your inbox
+    // Criar o transporter com Gmail SMTP
+    const transporter = nodemailer.createTransport({
+      host: "smtp.gmail.com",
+      port: 465,
+      secure: true, // usa SSL
+      auth: {
+        user: process.env.SMTP_USER, // teu Gmail
+        pass: process.env.SMTP_PASS, // app password
+      },
+    });
+
+    // Enviar email
+    await transporter.sendMail({
+      from: `"Website Contact" <${process.env.SMTP_USER}>`,
+      to: "andrebalao26@gmail.com", // para onde queres receber
       subject: `Novo contacto de ${name}`,
       html: `
         <h2>Nova mensagem recebida</h2>
@@ -26,6 +36,9 @@ export async function POST(req: Request) {
     return NextResponse.json({ ok: true });
   } catch (error) {
     console.error("Email error:", error);
-    return NextResponse.json({ ok: false, error: "Erro ao enviar email" }, { status: 500 });
+    return NextResponse.json(
+      { ok: false, error: (error as Error).message || "Erro ao enviar email" },
+      { status: 500 }
+    );
   }
 }
