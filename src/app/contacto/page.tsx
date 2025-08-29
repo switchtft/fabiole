@@ -131,7 +131,7 @@ function ContactoPageInner() {
                 {selectedService && <input type="hidden" name="service" value={selectedService} />}
                 {trainingFrequency && <input type="hidden" name="frequency" value={trainingFrequency} />}
                 {trainingDuration && <input type="hidden" name="duration" value={trainingDuration} />}
-                <input type="hidden" name="_next" value="http://localhost:3000/contacto" />
+                <input type="hidden" name="_next" value="https://www.fabiole.com/contacto" />
                 <input type="hidden" name="_captcha" value="false" />
 
                 <button
