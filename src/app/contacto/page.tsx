@@ -27,13 +27,35 @@ function ContactoPageInner() {
     const email = String(form.get("email") || "").trim();
     const message = String(form.get("message") || "").trim();
     const isEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-    
+
     if (!name || !isEmail || message.length < 10) {
       setStatus("error");
       return;
     }
-    
-    setTimeout(() => setStatus("success"), 500); // mock submit
+
+    setStatus("idle");
+    fetch("/contacto", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name,
+        email,
+        message,
+        service: selectedService,
+        frequency: trainingFrequency,
+        duration: trainingDuration,
+      }),
+    })
+      .then(async (res) => {
+        if (!res.ok) throw new Error("Erro ao enviar email");
+        const data = await res.json();
+        if (data.ok) {
+          setStatus("success");
+        } else {
+          setStatus("error");
+        }
+      })
+      .catch(() => setStatus("error"));
   }
 
   const hasSelectedOptions = selectedService && trainingFrequency && trainingDuration;
@@ -156,7 +178,7 @@ function ContactoPageInner() {
                 {status === "error" && (
                   <div className="p-4 bg-red-100 border border-red-300 rounded-lg">
                     <p className="text-red-700 text-center font-medium">
-                      ❌ Verifica os dados (mensagem deve ter pelo menos 10 caracteres).
+                      ❌ Verifica os dados (A mensagem deve ter pelo menos 10 caracteres).
                     </p>
                   </div>
                 )}
@@ -287,13 +309,13 @@ function ContactoPageInner() {
             Não Esperes Mais!
           </h2>
           <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-            A tua transformação começa hoje. Marca já a tua primeira sessão gratuita
+            A tua transformação começa hoje. Marca já a tua primeira sessão!
           </p>
           <a 
             href="tel:+351912345678" 
             className="inline-block bg-[#FF6B35] hover:bg-[#FF6B35]/90 text-white font-bold text-lg px-10 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
           >
-            📞 Ligar Agora
+            Ligar Agora
           </a>
         </div>
       </section>
