@@ -45,15 +45,15 @@ const services = [
 
 export default function ServicosPage() {
   return (
-    <main className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900">
+    <main className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-orange-50">
       {/* Hero Section */}
-      <section className="pt-32 pb-20 bg-gradient-to-br from-gray-900 to-black">
+      <section className="pt-32 pb-20 bg-gradient-to-br from-blue-100 to-white">
         <div className="container">
           <div className="text-center mb-16">
-            <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
+            <h1 className="text-5xl md:text-6xl font-bold text-gray-800 mb-6">
               Os Meus <span className="text-[#1E90FF]">Serviços</span>
             </h1>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Escolhe o serviço que melhor encaixa nos teus objetivos e estilo de vida
             </p>
           </div>
@@ -62,32 +62,32 @@ export default function ServicosPage() {
             {services.map((service, index) => (
               <div 
                 key={service.title}
-                className={`relative bg-gray-800 rounded-2xl p-8 border transition-all duration-300 hover:scale-105 ${
+                className={`relative bg-white rounded-2xl p-8 border transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl ${
                   service.popular 
                     ? 'border-[#FF6B35] shadow-lg shadow-[#FF6B35]/20' 
-                    : 'border-gray-700 hover:border-[#1E90FF]/50'
+                    : 'border-blue-200 hover:border-[#1E90FF]/50'
                 }`}
               >
                 {service.popular && (
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                    <span className="bg-[#FF6B35] text-white px-4 py-2 rounded-full text-sm font-bold">
+                    <span className="bg-[#FF6B35] text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg">
                       MAIS POPULAR
                     </span>
                   </div>
                 )}
 
                 <div className="text-center mb-6">
-                  <div className={`w-20 h-20 bg-gradient-to-r ${service.color} rounded-full flex items-center justify-center text-3xl mb-4 mx-auto`}>
+                  <div className={`w-20 h-20 bg-gradient-to-r ${service.color} rounded-full flex items-center justify-center text-3xl mb-4 mx-auto shadow-lg`}>
                     {service.icon}
                   </div>
-                  <h3 className="text-2xl font-bold text-white mb-2">{service.title}</h3>
-                  <p className="text-gray-300 mb-4">{service.desc}</p>
+                  <h3 className="text-2xl font-bold text-gray-800 mb-2">{service.title}</h3>
+                  <p className="text-gray-600 mb-4">{service.desc}</p>
                   <div className="text-2xl font-bold text-[#1E90FF] mb-6">{service.price}</div>
                 </div>
 
                 <ul className="space-y-3 mb-8">
                   {service.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-center text-gray-300">
+                    <li key={featureIndex} className="flex items-center text-gray-600">
                       <span className="text-green-500 mr-3">✓</span>
                       {feature}
                     </li>
@@ -97,7 +97,7 @@ export default function ServicosPage() {
                 <div className="text-center">
                   <Link 
                     href="/contacto" 
-                    className={`inline-block w-full py-3 px-6 rounded-lg font-bold transition-all duration-300 ${
+                    className={`inline-block w-full py-3 px-6 rounded-lg font-bold transition-all duration-300 shadow-lg ${
                       service.popular
                         ? 'bg-[#FF6B35] hover:bg-[#FF6B35]/90 text-white'
                         : 'bg-[#1E90FF] hover:bg-[#1E90FF]/90 text-white'
@@ -113,41 +113,41 @@ export default function ServicosPage() {
       </section>
 
       {/* Additional Info */}
-      <section className="py-20 bg-black">
+      <section className="py-20 bg-gradient-to-br from-orange-50 to-white">
         <div className="container">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
               Porque Escolher os <span className="text-[#1E90FF]">Meus Serviços</span>
             </h2>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center p-8 bg-gray-800 rounded-2xl border border-gray-700">
-              <div className="w-16 h-16 bg-gradient-to-r from-[#1E90FF] to-blue-600 rounded-full flex items-center justify-center text-2xl mb-6 mx-auto">
+            <div className="text-center p-8 bg-white rounded-2xl border border-blue-200 shadow-lg hover:shadow-xl transition-all duration-300">
+              <div className="w-16 h-16 bg-gradient-to-r from-[#1E90FF] to-blue-600 rounded-full flex items-center justify-center text-2xl mb-6 mx-auto shadow-lg">
                 🎯
               </div>
-              <h3 className="text-xl font-bold text-white mb-4">Personalizado</h3>
-              <p className="text-gray-300">
+              <h3 className="text-xl font-bold text-gray-800 mb-4">Personalizado</h3>
+              <p className="text-gray-600">
                 Cada plano é adaptado às tuas necessidades, objetivos e rotina diária.
               </p>
             </div>
 
-            <div className="text-center p-8 bg-gray-800 rounded-2xl border border-gray-700">
-              <div className="w-16 h-16 bg-gradient-to-r from-[#FF6B35] to-orange-600 rounded-full flex items-center justify-center text-2xl mb-6 mx-auto">
+            <div className="text-center p-8 bg-white rounded-2xl border border-orange-200 shadow-lg hover:shadow-xl transition-all duration-300">
+              <div className="w-16 h-16 bg-gradient-to-r from-[#FF6B35] to-orange-600 rounded-full flex items-center justify-center text-2xl mb-6 mx-auto shadow-lg">
                 📈
               </div>
-              <h3 className="text-xl font-bold text-white mb-4">Resultados</h3>
-              <p className="text-gray-300">
+              <h3 className="text-xl font-bold text-gray-800 mb-4">Resultados</h3>
+              <p className="text-gray-600">
                 Foco em resultados reais e sustentáveis, com acompanhamento contínuo.
               </p>
             </div>
 
-            <div className="text-center p-8 bg-gray-800 rounded-2xl border border-gray-700">
-              <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-600 rounded-full flex items-center justify-center text-2xl mb-6 mx-auto">
+            <div className="text-center p-8 bg-white rounded-2xl border border-green-200 shadow-lg hover:shadow-xl transition-all duration-300">
+              <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-600 rounded-full flex items-center justify-center text-2xl mb-6 mx-auto shadow-lg">
                 💪
               </div>
-              <h3 className="text-xl font-bold text-white mb-4">Suporte</h3>
-              <p className="text-gray-300">
+              <h3 className="text-xl font-bold text-gray-800 mb-4">Suporte</h3>
+              <p className="text-gray-600">
                 Suporte dedicado e motivação constante para manteres o foco.
               </p>
             </div>
@@ -166,7 +166,7 @@ export default function ServicosPage() {
           </p>
           <Link 
             href="/contacto" 
-            className="inline-block bg-[#FF6B35] hover:bg-[#FF6B35]/90 text-white font-bold text-lg px-10 py-4 rounded-lg transition-all duration-300 transform hover:scale-105"
+            className="inline-block bg-[#FF6B35] hover:bg-[#FF6B35]/90 text-white font-bold text-lg px-10 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
           >
             Marca Consulta Gratuita
           </Link>

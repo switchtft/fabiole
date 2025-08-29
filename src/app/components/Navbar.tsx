@@ -12,10 +12,10 @@ const navItems = [
 export default function Navbar() {
   const pathname = usePathname();
   return (
-    <header className="fixed inset-x-0 top-0 z-50 bg-black/70 backdrop-blur supports-[backdrop-filter]:bg-black/60 border-b border-gray-700">
+    <header className="fixed inset-x-0 top-0 z-50 bg-[#1E90FF] shadow-lg">
       <nav className="container flex h-16 items-center justify-between" aria-label="Primary">
         <Link href="/" className="text-white font-semibold text-lg hover:opacity-90" aria-label="Ir para Home">
-          Fabio Le
+          Fábio Lé
         </Link>
         <ul className="flex items-center gap-6">
           {navItems.map((item) => {
@@ -24,8 +24,8 @@ export default function Navbar() {
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className={`text-sm font-medium hover:text-blue-400 focus:outline-none ${
-                    isActive ? "text-blue-400" : "text-gray-300"
+                  className={`text-sm font-medium hover:text-[#FF6B35] focus:outline-none transition-colors ${
+                    isActive ? "text-[#FF6B35] font-bold" : "text-white"
                   }`}
                 >
                   {item.label}
