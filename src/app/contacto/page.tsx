@@ -1,10 +1,6 @@
 "use client";
 import { useState } from "react";
 
-export const metadata = {
-  title: "Contacto",
-};
-
 export default function ContactoPage() {
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
