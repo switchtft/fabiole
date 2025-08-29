@@ -1,8 +1,23 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 
 export default function ContactoPage() {
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
+  const [selectedService, setSelectedService] = useState<string>("");
+  const [trainingFrequency, setTrainingFrequency] = useState<string>("");
+  const [trainingDuration, setTrainingDuration] = useState<string>("");
+  const searchParams = useSearchParams();
+  
+  useEffect(() => {
+    const service = searchParams.get("service");
+    const frequency = searchParams.get("frequency");
+    const duration = searchParams.get("duration");
+    
+    if (service) setSelectedService(service);
+    if (frequency) setTrainingFrequency(frequency);
+    if (duration) setTrainingDuration(duration);
+  }, [searchParams]);
   
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -19,6 +34,8 @@ export default function ContactoPage() {
     
     setTimeout(() => setStatus("success"), 500); // mock submit
   }
+
+  const hasSelectedOptions = selectedService && trainingFrequency && trainingDuration;
 
   return (
     <main className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-orange-50">
@@ -38,6 +55,35 @@ export default function ContactoPage() {
             {/* Contact Form */}
             <div className="bg-white rounded-2xl p-8 border border-blue-200 shadow-lg">
               <h2 className="text-2xl font-bold text-gray-800 mb-6">Envia-me uma Mensagem</h2>
+              
+              {/* Selected Service Options Display */}
+              {hasSelectedOptions && (
+                <div className="mb-6 p-4 bg-white rounded-lg border border-blue-200 shadow-md">
+                  <div className="flex justify-between items-center mb-3">
+                    <h3 className="text-lg font-bold text-gray-800">📋 Opções Selecionadas:</h3>
+                    <button
+                      onClick={() => window.location.href = '/servicos'}
+                      className="px-4 py-2 bg-[#FF6B35] hover:bg-[#FF6B35]/90 text-white text-sm font-bold rounded-lg transition-all duration-300"
+                    >
+                      Alterar
+                    </button>
+                  </div>
+                  <div className="space-y-2 text-sm">
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">Serviço:</span>
+                      <span className="font-semibold text-[#1E90FF]">{selectedService}</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">Frequência:</span>
+                      <span className="font-semibold text-[#FF6B35]">{trainingFrequency}x por semana</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">Duração:</span>
+                      <span className="font-semibold text-[#FF6B35]">{trainingDuration}</span>
+                    </div>
+                  </div>
+                </div>
+              )}
               
               <form onSubmit={handleSubmit} noValidate className="space-y-6">
                 <div>
@@ -78,7 +124,16 @@ export default function ContactoPage() {
                     rows={5} 
                     required 
                     className="w-full rounded-lg bg-gray-50 border border-gray-300 px-4 py-3 text-gray-800 placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-[#1E90FF] focus:border-transparent transition-all duration-300 resize-none" 
-                    placeholder="Conta-me sobre os teus objetivos de fitness e como posso ajudar..."
+                    placeholder={
+                      hasSelectedOptions 
+                        ? `Olá Fábio! Estou interessado no serviço "${selectedService}" com ${trainingFrequency} treinos por semana de ${trainingDuration}. Conta-me sobre os teus objetivos de fitness e como posso ajudar...`
+                        : "Conta-me sobre os teus objetivos de fitness e como posso ajudar..."
+                    }
+                    defaultValue={
+                      hasSelectedOptions 
+                        ? `Olá Fábio! Estou interessado no serviço "${selectedService}" com ${trainingFrequency} treinos por semana de ${trainingDuration}. Gostaria de saber mais sobre este plano e como podemos começar.`
+                        : ""
+                    }
                   />
                 </div>
                 
