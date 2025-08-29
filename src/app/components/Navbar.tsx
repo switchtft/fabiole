@@ -12,7 +12,7 @@ const navItems = [
 export default function Navbar() {
   const pathname = usePathname();
   return (
-    <header className="fixed inset-x-0 top-0 z-50 bg-background/70 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-white/10">
+    <header className="fixed inset-x-0 top-0 z-50 bg-black/70 backdrop-blur supports-[backdrop-filter]:bg-black/60 border-b border-gray-700">
       <nav className="container flex h-16 items-center justify-between" aria-label="Primary">
         <Link href="/" className="text-white font-semibold text-lg hover:opacity-90" aria-label="Ir para Home">
           Fabio Le
@@ -24,8 +24,8 @@ export default function Navbar() {
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className={`text-sm font-medium hover:text-[--color-primary] focus:outline-none ${
-                    isActive ? "text-[--color-primary]" : "text-white/80"
+                  className={`text-sm font-medium hover:text-blue-400 focus:outline-none ${
+                    isActive ? "text-blue-400" : "text-gray-300"
                   }`}
                 >
                   {item.label}
