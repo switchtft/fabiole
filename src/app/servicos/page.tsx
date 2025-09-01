@@ -29,15 +29,24 @@ export default function ServicosPage() {
       color: "from-[#FF6B35] to-orange-600",
       popular: true
     },
-         {
-       title: "Aulas de Grupo",
-       desc: "Aulas em grupo com ambiente motivacional e preços mais acessíveis. Ideal para quem gosta de treinar em equipa.",
-       price: "A partir de €20/hora",
-       features: ["Aulas em grupo", "Ambiente motivacional", "Preços acessíveis", "Horários flexíveis"],
-       icon: "/images/grupo.png",
-       color: "from-purple-500 to-pink-600",
-       popular: false
-     }
+    {
+      title: "Aulas de Grupo",
+      desc: "Aulas em grupo com ambiente motivacional e preços mais acessíveis. Ideal para quem gosta de treinar em equipa.",
+      price: "A partir de €20/hora",
+      features: ["Aulas em grupo", "Ambiente motivacional", "Preços acessíveis", "Horários flexíveis"],
+      icon: "/images/grupo.png",
+      color: "from-purple-500 to-pink-600",
+      popular: false
+    },
+    {
+      title: "Ginástica Laboral / Teambuilding para Empresas",
+      desc: "Sessões de ginástica laboral e atividades de teambuilding para promover saúde, bem-estar e espírito de equipa nas empresas.",
+      price: "€30/hora",
+      icon: "/images/coletivo.jpg",
+      color: "from-green-500 to-emerald-600",
+      popular: false,
+      pdf: "https://1b7dd9d4-91c7-449f-be0e-7e7479c5029f.filesusr.com/ugd/3342dc_0223ae79b6854f449c15e195b1428f49.pdf"
+    }
   ];
 
   const handleServiceClick = (serviceTitle: string) => {
@@ -64,7 +73,7 @@ export default function ServicosPage() {
 
   const calculatePrice = () => {
     let basePrice = 0;
-    
+
     if (selectedService === "Treinos Presenciais") {
       switch (trainingDuration) {
         case "30 minutos":
@@ -101,8 +110,20 @@ export default function ServicosPage() {
           basePrice = 20;
           break;
       }
+    } else if (selectedService === "Ginástica Laboral / Teambuilding para Empresas") {
+      switch (trainingDuration) {
+        case "30 minutos":
+          basePrice = 20;
+          break;
+        case "45 minutos":
+          basePrice = 25;
+          break;
+        case "1 hora":
+          basePrice = 30;
+          break;
+      }
     }
-    
+
     return basePrice * trainingFrequency;
   };
 
@@ -156,14 +177,27 @@ export default function ServicosPage() {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-2 gap-3 mb-8">
-                  {service.features.map((feature, featureIndex) => (
-                    <div key={featureIndex} className="flex items-center text-gray-600 text-sm">
-                      <span className="text-green-500 mr-2">✓</span>
-                      <span className="truncate">{feature}</span>
-                    </div>
-                  ))}
-                </div>
+                {service.pdf ? (
+                  <div className="mb-8 text-center">
+                    <a
+                      href={service.pdf}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block text-[#1E90FF] font-bold underline text-lg"
+                    >
+                      Informação detalhada (PDF)
+                    </a>
+                  </div>
+                ) : (
+                  <div className="grid grid-cols-2 gap-3 mb-8">
+                    {service.features && service.features.map((feature, featureIndex) => (
+                      <div key={featureIndex} className="flex items-center text-gray-600 text-sm">
+                        <span className="text-green-500 mr-2">✓</span>
+                        <span className="truncate">{feature}</span>
+                      </div>
+                    ))}
+                  </div>
+                )}
 
                 <div className="text-center">
                   <button 

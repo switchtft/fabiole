@@ -185,7 +185,7 @@ function ContactoPageInner() {
             A tua transformação começa hoje. Marca já a tua primeira sessão!
           </p>
           <a
-            href="tel:+351912345678"
+            href="tel:+351964553301"
             className="inline-block bg-[#FF6B35] hover:bg-[#FF6B35]/90 text-white font-bold text-lg px-10 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
           >
             Ligar Agora
