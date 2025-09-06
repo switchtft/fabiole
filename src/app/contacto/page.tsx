@@ -117,7 +117,7 @@ function ContactoPageInner() {
                     placeholder={
                       hasSelectedOptions
                         ? `Olá Fábio! Estou interessado no serviço "${selectedService}" com ${trainingFrequency} treinos por semana de ${trainingDuration}. Conta-me sobre os teus objetivos de fitness e como posso ajudar...`
-                        : "Conta-me sobre os teus objetivos de fitness e como posso ajudar..."
+                        : "Conta-me sobre os teus objetivos de fitness e como te posso ajudar..."
                     }
                     defaultValue={
                       hasSelectedOptions
