@@ -18,7 +18,7 @@ export default function ServicosPage() {
       features: ["Acompanhamento 1:1", "Correção técnica", "Flexibilidade de horários", "Ajustes na hora"],
       icon: "/images/presencial1.jpg",
       color: "from-[#1E90FF] to-blue-600",
-      popular: false
+      popular: true
     },
     {
       title: "Treinos Online",
@@ -27,7 +27,7 @@ export default function ServicosPage() {
       features: ["Planos personalizados", "Acompanhamento semanal", "Ajustes contínuos", "Videochamada"],
       icon: "/images/online1.png",
       color: "from-[#FF6B35] to-orange-600",
-      popular: true
+      popular: false
     },
     {
       title: "Aulas de Grupo",
@@ -41,7 +41,7 @@ export default function ServicosPage() {
     {
       title: "Ginástica Laboral / Teambuilding para Empresas",
       desc: "Sessões de ginástica laboral e atividades de teambuilding para promover saúde, bem-estar e espírito de equipa nas empresas.",
-      price: "€30/hora",
+      price: "Sob consulta",
       icon: "/images/coletivo.jpg",
       color: "from-green-500 to-emerald-600",
       popular: false,
@@ -361,13 +361,13 @@ export default function ServicosPage() {
             Pronto para Começar?
           </h2>
           <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-            Contacta-me para uma consulta gratuita e descobre qual o melhor plano para ti
+            Contacta-me para uma avaliação gratuita e descobre qual o melhor plano para ti
           </p>
           <button 
             onClick={() => router.push('/contacto')}
             className="inline-block bg-[#FF6B35] hover:bg-[#FF6B35]/90 text-white font-bold text-lg px-10 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
           >
-            Marca Consulta Gratuita
+            Marca Avaliação Gratuita
           </button>
         </div>
       </section>

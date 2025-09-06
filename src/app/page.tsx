@@ -72,6 +72,11 @@ export default function Home() {
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
               Planos personalizados para diferentes objetivos e níveis de fitness
             </p>
+            <div className="mt-6 p-4 bg-gradient-to-r from-green-50 to-blue-50 rounded-xl border-l-4 border-green-500 max-w-2xl mx-auto">
+              <p className="text-lg text-gray-700 font-semibold">
+                🎯 <span className="text-green-600">Avaliação física inicial é gratuita!</span>
+              </p>
+            </div>
           </motion.div>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -143,7 +148,7 @@ export default function Home() {
               </p>
               <div className="grid grid-cols-2 gap-6 mb-8">
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-[#1E90FF] mb-2">5+</div>
+                  <div className="text-3xl font-bold text-[#1E90FF] mb-2">10+</div>
                   <div className="text-gray-600">Anos de Experiência</div>
                 </div>
                 <div className="text-center">
@@ -175,7 +180,7 @@ export default function Home() {
             >
               <div className="relative rounded-2xl overflow-hidden shadow-2xl max-w-md mx-auto">
                 <Image
-                  src="/images/fabio1.png"
+                  src="/images/bike.jpg"
                   alt="Fábio Lé Personal Trainer"
                   width={400}
                   height={500}
