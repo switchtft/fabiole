@@ -50,6 +50,15 @@ export default function ServicosPage() {
   ];
 
   const handleServiceClick = (serviceTitle: string) => {
+    // For Ginástica Laboral, redirect directly to contact without showing pricing modal
+    if (serviceTitle === "Ginástica Laboral / Teambuilding para Empresas") {
+      const params = new URLSearchParams({
+        service: serviceTitle
+      });
+      router.push(`/contacto?${params.toString()}`);
+      return;
+    }
+    
     setSelectedService(serviceTitle);
     setShowModal(true);
   };
@@ -108,18 +117,6 @@ export default function ServicosPage() {
           break;
         case "1 hora":
           basePrice = 20;
-          break;
-      }
-    } else if (selectedService === "Ginástica Laboral / Teambuilding para Empresas") {
-      switch (trainingDuration) {
-        case "30 minutos":
-          basePrice = 20;
-          break;
-        case "45 minutos":
-          basePrice = 25;
-          break;
-        case "1 hora":
-          basePrice = 30;
           break;
       }
     }
@@ -207,7 +204,7 @@ export default function ServicosPage() {
                         : 'bg-[#1E90FF] hover:bg-[#1E90FF]/90 text-white'
                     }`}
                   >
-                    Escolher Plano
+                    {service.title === "Ginástica Laboral / Teambuilding para Empresas" ? "Contactar Para Informações" : "Escolher Plano"}
                   </button>
                 </div>
               </div>
