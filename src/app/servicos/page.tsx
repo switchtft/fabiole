@@ -8,6 +8,7 @@ export default function ServicosPage() {
   const [showModal, setShowModal] = useState(false);
   const [trainingFrequency, setTrainingFrequency] = useState<number>(1);
   const [trainingDuration, setTrainingDuration] = useState<string>("30 minutos");
+  const [trainingType, setTrainingType] = useState<string>("individual");
   const router = useRouter();
 
   const services = [
@@ -30,11 +31,11 @@ export default function ServicosPage() {
       popular: false
     },
     {
-      title: "Aulas de Grupo",
-      desc: "Aulas em grupo com ambiente motivacional e preços mais acessíveis. Ideal para quem gosta de treinar em equipa.",
-      price: "A partir de €20/hora",
-      features: ["Aulas em grupo", "Ambiente motivacional", "Preços acessíveis", "Horários flexíveis"],
-      icon: "/images/grupo.png",
+      title: "Acompanhamento Online",
+      desc: "Através de uma app e contacto regular, recebe um plano de treino personalizado com exercícios detalhados (vídeo e imagem).",
+      price: "€30/mês",
+      features: ["Plano personalizado", "App dedicada", "Vídeos e imagens", "Contacto regular"],
+      icon: "/images/online1.png",
       color: "from-purple-500 to-pink-600",
       popular: false
     },
@@ -50,8 +51,8 @@ export default function ServicosPage() {
   ];
 
   const handleServiceClick = (serviceTitle: string) => {
-    // For Ginástica Laboral, redirect directly to contact without showing pricing modal
-    if (serviceTitle === "Ginástica Laboral / Teambuilding para Empresas") {
+    // For Ginástica Laboral and Acompanhamento Online, redirect directly to contact without showing pricing modal
+    if (serviceTitle === "Ginástica Laboral / Teambuilding para Empresas" || serviceTitle === "Acompanhamento Online") {
       const params = new URLSearchParams({
         service: serviceTitle
       });
@@ -67,7 +68,8 @@ export default function ServicosPage() {
     const params = new URLSearchParams({
       service: selectedService || "",
       frequency: trainingFrequency.toString(),
-      duration: trainingDuration
+      duration: trainingDuration,
+      type: trainingType
     });
     
     router.push(`/contacto?${params.toString()}`);
@@ -78,6 +80,7 @@ export default function ServicosPage() {
     setSelectedService(null);
     setTrainingFrequency(1);
     setTrainingDuration("30 minutos");
+    setTrainingType("individual");
   };
 
   const calculatePrice = () => {
@@ -107,16 +110,31 @@ export default function ServicosPage() {
           basePrice = 25;
           break;
       }
-    } else if (selectedService === "Aulas de Grupo") {
+    }
+
+    // Adicionar preços extras para dupla e trio
+    if (trainingType === "dupla") {
       switch (trainingDuration) {
         case "30 minutos":
-          basePrice = 13;
+          basePrice += 2;
           break;
         case "45 minutos":
-          basePrice = 17;
+          basePrice += 3;
           break;
         case "1 hora":
-          basePrice = 20;
+          basePrice += 5;
+          break;
+      }
+    } else if (trainingType === "trio") {
+      switch (trainingDuration) {
+        case "30 minutos":
+          basePrice += 4;
+          break;
+        case "45 minutos":
+          basePrice += 6;
+          break;
+        case "1 hora":
+          basePrice += 8;
           break;
       }
     }
@@ -204,7 +222,7 @@ export default function ServicosPage() {
                         : 'bg-[#1E90FF] hover:bg-[#1E90FF]/90 text-white'
                     }`}
                   >
-                    {service.title === "Ginástica Laboral / Teambuilding para Empresas" ? "Contactar Para Informações" : "Escolher Plano"}
+                    {service.title === "Ginástica Laboral / Teambuilding para Empresas" || service.title === "Acompanhamento Online" ? "Contactar Para Informações" : "Escolher Plano"}
                   </button>
                 </div>
               </div>
@@ -271,13 +289,42 @@ export default function ServicosPage() {
                 </div>
                              </div>
 
+              {/* Training Type */}
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-3">
+                  Tipo de Treino
+                </label>
+                <div className="space-y-2">
+                  {[
+                    { value: "individual", label: "Individual", desc: "Treino 1:1" },
+                    { value: "dupla", label: "Dupla", desc: "+€2-5 por treino" },
+                    { value: "trio", label: "Trio", desc: "+€4-8 por treino" }
+                  ].map((type) => (
+                    <button
+                      key={type.value}
+                      onClick={() => setTrainingType(type.value)}
+                      className={`w-full py-3 px-4 rounded-lg font-bold transition-all duration-300 text-left ${
+                        trainingType === type.value
+                          ? 'bg-green-500 text-white shadow-lg'
+                          : 'bg-white border-2 border-gray-200 text-gray-700 hover:border-green-500 hover:text-green-500'
+                      }`}
+                    >
+                      <div className="flex justify-between items-center">
+                        <span>{type.label}</span>
+                        <span className="text-sm opacity-75">{type.desc}</span>
+                      </div>
+                    </button>
+                  ))}
+                </div>
+              </div>
+
                {/* Price Display */}
                <div className="bg-gray-50 rounded-lg p-4 mt-6">
                  <div className="text-center">
                    <p className="text-sm text-gray-600 mb-2">Preço/Semana</p>
                    <p className="text-3xl font-bold text-[#1E90FF]">€{calculatePrice()}</p>
                    <p className="text-xs text-gray-500 mt-1">
-                     {trainingFrequency}x por semana • {trainingDuration}
+                     {trainingFrequency}x por semana • {trainingDuration} • {trainingType === "individual" ? "Individual" : trainingType === "dupla" ? "Dupla" : "Trio"}
                    </p>
                  </div>
                </div>
